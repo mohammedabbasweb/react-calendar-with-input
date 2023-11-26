@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CalendarToolbar from './CalendarToolbar'
 import dayjs, { Dayjs } from 'dayjs'
-import customParseFormat from "dayjs/plugin/customParseFormat"
 import CalendarDayView from './CalendarDayView'
 import CalendarMonthView from './CalendarMonthView'
 import CalendarYearView from './CalendarYearView'
+import './calendar.css'
 
-dayjs.extend(customParseFormat)
 
 
 
@@ -76,7 +75,7 @@ const Calendar = (props: Props) => {
     const monthRef = useRef<HTMLDivElement>(null)
     const yearRef = useRef<HTMLDivElement>(null)
 
-    const isValue = dayjs(value, "DD/MM/YYYY")
+    const isValue = dayjs(value)
 
     let selectedDate = value && isValue.isValid() ? isValue : null
 

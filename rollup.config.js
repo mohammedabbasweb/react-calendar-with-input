@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
+import postcss from 'rollup-plugin-postcss'
 
 //NEW
 import terser from '@rollup/plugin-terser'
@@ -29,6 +30,18 @@ export default [
 
       // NEW
       terser(),
+
+
+      postcss({
+        minimize: true,
+        modules: true,
+        use: {
+            sass: null,
+            stylus: null,
+            less: { javascriptEnabled: true }
+        }, 
+        extract: true
+    }),
     ],
   },
   {
