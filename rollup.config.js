@@ -25,23 +25,30 @@ export default [
       typescript(),
       peerDepsExternal(),
 
-      resolve(),
+      resolve({
+        extensions: [".css"]
+      }),
       commonjs(),
 
       // NEW
       terser(),
 
-
       postcss({
-        minimize: true,
-        modules: true,
-        use: {
-            sass: null,
-            stylus: null,
-            less: { javascriptEnabled: true }
-        }, 
-        extract: true
-    }),
+        extract: true,
+      })
+
+
+    //   postcss({
+    //     minimize: true,
+    //     modules: false,
+    //     extensions: [".css"],
+    //     use: {
+    //         sass: null,
+    //         stylus: null,
+    //         less: { javascriptEnabled: true }
+    //     },        
+    //     extract: false
+    // }),
     ],
   },
   {
